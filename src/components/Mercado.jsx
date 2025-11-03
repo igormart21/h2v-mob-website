@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { FaChartLine, FaLeaf, FaMapMarkedAlt } from 'react-icons/fa'
 import { GridPattern } from './magicui/GridPattern'
-import pipelineImage from '../assets/H2V-Mob - A presentação_Extracted_page-0001.jpg'
+import pipelineImage from '../assets/h2v-apresentacao-1.jpg'
 
 const Mercado = () => {
   return (
