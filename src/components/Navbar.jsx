@@ -34,7 +34,7 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24 md:h-28">
           <motion.div
             className="cursor-pointer"
             whileHover={{ scale: 1.05 }}
@@ -43,7 +43,7 @@ const Navbar = () => {
             <img 
               src={logo} 
               alt="H2V Mob - Integradora de Soluções em Hidrogênio Verde" 
-              className="h-20 md:h-24 w-auto"
+              className="h-24 md:h-28 w-auto"
             />
           </motion.div>
 
