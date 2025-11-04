@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { FaIndustry, FaMapMarkedAlt, FaRoad } from 'react-icons/fa'
 import { GridPattern } from './magicui/GridPattern'
-import ProjetoPilotoImage from '../assets/FT - CPDF30-35HAB2 - Ficha técnica.pngBR_Extracted_page-0001.jpg'
-import NegociacoesImage from '../assets/Proposta Tecnica Quantron Cizaris 12 Metros Célula de Hidrogenio FCEV_page-0001.jpg'
+import ProjetoPilotoImage from '../assets/ft-cpdf30-35hab2-ficha-tecnica.jpg'
+import NegociacoesImage from '../assets/quantron-cizaris-fcev-1.jpg'
 import EstacaoPublicaImage from '../assets/ChatGPT Image Nov 4, 2025, 11_19_53 AM.png'
 
 const Projetos = () => {
