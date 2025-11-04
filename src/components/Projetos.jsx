@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
 import { FaIndustry, FaMapMarkedAlt, FaRoad } from 'react-icons/fa'
 import { GridPattern } from './magicui/GridPattern'
+import ProjetoPilotoImage from '../assets/FT - CPDF30-35HAB2 - Ficha técnica.pngBR_Extracted_page-0001.jpg'
+import NegociacoesImage from '../assets/Proposta Tecnica Quantron Cizaris 12 Metros Célula de Hidrogenio FCEV_page-0001.jpg'
+import EstacaoPublicaImage from '../assets/ChatGPT Image Nov 4, 2025, 11_19_53 AM.png'
 
 const Projetos = () => {
   const projetos = [
@@ -11,6 +14,7 @@ const Projetos = () => {
       description: 'Projeto demonstrativo em desenvolvimento na região do Vale dos Sinos, estabelecendo as bases para a expansão da infraestrutura de hidrogênio verde no estado.',
       status: 'Em Desenvolvimento',
       color: 'bg-h2v-green',
+      image: ProjetoPilotoImage,
     },
     {
       icon: FaMapMarkedAlt,
@@ -18,6 +22,7 @@ const Projetos = () => {
       description: 'Em negociação com empresas de logística, montadoras e indústrias para estabelecer parcerias estratégicas e contratos de fornecimento de longo prazo.',
       status: 'Em Negociação',
       color: 'bg-h2v-blue',
+      image: NegociacoesImage,
     },
     {
       icon: FaRoad,
@@ -25,6 +30,7 @@ const Projetos = () => {
       description: 'Próxima etapa inclui a implementação da primeira estação pública de abastecimento de hidrogênio verde no Rio Grande do Sul, marcando um marco histórico para a mobilidade sustentável.',
       status: 'Próxima Etapa',
       color: 'bg-h2v-green',
+      image: EstacaoPublicaImage,
     },
   ]
 
@@ -57,6 +63,13 @@ const Projetos = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
+              {projeto.image && (
+                <img
+                  src={projeto.image}
+                  alt={projeto.title}
+                  className="w-full h-auto object-contain rounded-lg mb-6 border border-h2v-gray/40 bg-gray-50"
+                />
+              )}
               <div className={`w-16 h-16 ${projeto.color} rounded-full flex items-center justify-center mb-6`}>
                 <projeto.icon className="text-white text-2xl" />
               </div>

@@ -9,6 +9,8 @@ import Ecosistema from './components/Ecosistema'
 import Mercado from './components/Mercado'
 import ModeloNegocio from './components/ModeloNegocio'
 import Projetos from './components/Projetos'
+import CarrosselProjeto from './components/CarrosselProjeto'
+import CarrosselProjetoVideos from './components/CarrosselProjetoVideos'
 import Sustentabilidade from './components/Sustentabilidade'
 import FAQ from './components/FAQ'
 import Contato from './components/Contato'
@@ -38,6 +40,8 @@ function App() {
       <Mercado />
       <ModeloNegocio />
       <Projetos />
+      <CarrosselProjeto />
+      <CarrosselProjetoVideos />
       <Sustentabilidade />
       <FAQ />
       <Contato />
