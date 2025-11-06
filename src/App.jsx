@@ -10,6 +10,7 @@ import Mercado from './components/Mercado'
 import ModeloNegocio from './components/ModeloNegocio'
 import Projetos from './components/Projetos'
 import CarrosselProjeto from './components/CarrosselProjeto'
+import ApresentacaoProjeto from './components/ApresentacaoProjeto'
 import CarrosselProjetoVideos from './components/CarrosselProjetoVideos'
 import Sustentabilidade from './components/Sustentabilidade'
 import FAQ from './components/FAQ'
@@ -33,6 +34,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
+      <ApresentacaoProjeto />
       <Sobre />
       <Ecosistema />
       <CarrosselInstitucional />
