@@ -12,6 +12,8 @@ const Contato = () => {
     email: '',
     mensagem: '',
   })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [feedback, setFeedback] = useState({ type: '', message: '' })
 
   const handleChange = (e) => {
     setFormData({
@@ -20,12 +22,46 @@ const Contato = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Aqui você pode adicionar lógica de envio do formulário
-    console.log('Formulário enviado:', formData)
-    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.')
-    setFormData({ nome: '', empresa: '', email: '', mensagem: '' })
+    setIsSubmitting(true)
+    setFeedback({ type: '', message: '' })
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/ricardo@h2vmob.com.br', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          nome: formData.nome,
+          empresa: formData.empresa || 'Não informado',
+          email: formData.email,
+          mensagem: formData.mensagem,
+          _subject: 'Contato via site H2V Mob',
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Falha no envio, tente novamente.')
+      }
+
+      setFeedback({
+        type: 'success',
+        message: 'Mensagem enviada com sucesso! Verifique sua caixa de entrada para confirmação.',
+      })
+      setFormData({ nome: '', empresa: '', email: '', mensagem: '' })
+    } catch (error) {
+      setFeedback({
+        type: 'error',
+        message:
+          error.message ||
+          'Não foi possível enviar a mensagem agora. Por favor, tente novamente em instantes.',
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -131,11 +167,23 @@ const Contato = () => {
               </div>
               <button
                 type="submit"
-                className="w-full bg-h2v-green text-h2v-blue px-8 py-4 rounded-lg hover:bg-h2v-green/80 transition-all font-inter font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105"
+                disabled={isSubmitting}
+                className="w-full bg-h2v-green text-h2v-blue px-8 py-4 rounded-lg transition-all font-inter font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Enviar Mensagem
+                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
               </button>
             </form>
+            {feedback.message && (
+              <div
+                className={`mt-6 px-6 py-4 rounded-lg border ${
+                  feedback.type === 'success'
+                    ? 'bg-emerald-500/20 border-emerald-400 text-emerald-100'
+                    : 'bg-red-500/20 border-red-400 text-red-100'
+                }`}
+              >
+                <p className="font-inter text-sm">{feedback.message}</p>
+              </div>
+            )}
             
             {/* GIF Animation */}
             <motion.div
