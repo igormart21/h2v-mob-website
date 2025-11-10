@@ -12,6 +12,7 @@ import Projetos from './components/Projetos'
 import CarrosselProjeto from './components/CarrosselProjeto'
 import ApresentacaoProjeto from './components/ApresentacaoProjeto'
 import CarrosselProjetoVideos from './components/CarrosselProjetoVideos'
+import Feira from './components/Feira'
 import Sustentabilidade from './components/Sustentabilidade'
 import FAQ from './components/FAQ'
 import Contato from './components/Contato'
@@ -44,6 +45,7 @@ function App() {
       <Projetos />
       <CarrosselProjeto />
       <CarrosselProjetoVideos />
+      <Feira />
       <Sustentabilidade />
       <FAQ />
       <Contato />
